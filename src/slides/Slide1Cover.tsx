@@ -1,18 +1,10 @@
 import { SlideWrapper, GoldDivider } from "@/components/deck-primitives";
-import { FluirLogo } from "@/components/FluirLogo";
 
 export function Slide1Cover() {
   return (
-    <SlideWrapper showLogo={false} gradient>
+    <SlideWrapper gradient>
       <div className="flex-1 flex flex-col items-center justify-center text-center">
-        <FluirLogo size={120} />
-        <div
-          className="mt-6 text-3xl tracking-wide"
-          style={{ color: "#F0D78C", fontWeight: 700 }}
-        >
-          Fluir Consultoria
-        </div>
-        <GoldDivider className="my-12" />
+        <GoldDivider className="mb-12" />
         <h1
           className="max-w-5xl leading-tight"
           style={{
@@ -26,7 +18,7 @@ export function Slide1Cover() {
           Impulsionamos o Espírito Santo.
         </h1>
         <p
-          className="mt-12 text-lg md:text-xl max-w-3xl"
+          className="mt-10 text-lg md:text-xl max-w-3xl"
           style={{ color: "#E2E6E9", fontWeight: 400 }}
         >
           Consultoria especializada em estruturação tributária e atração de
