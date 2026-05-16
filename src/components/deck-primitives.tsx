@@ -4,22 +4,20 @@ import { FluirLogo } from "./FluirLogo";
 export function SlideHeader() {
   return (
     <div
-      className="absolute top-0 left-0 right-0 z-20 flex items-center gap-3 px-10 h-14"
-      style={{
-        background:
-          "linear-gradient(180deg, rgba(2,13,31,0.55) 0%, rgba(2,13,31,0) 100%)",
-      }}
+      className="absolute z-20 flex items-center gap-3"
+      style={{ top: 24, left: 32 }}
     >
-      <FluirLogo size={40} />
+      <FluirLogo size={32} />
       <span
         style={{
-          color: "#F0D78C",
           fontWeight: 700,
-          fontSize: 16,
-          letterSpacing: "0.04em",
+          fontSize: 18,
+          letterSpacing: "0.15em",
+          color: "#F5F0F0",
+          lineHeight: 1,
         }}
       >
-        Fluir Consultoria
+        FLU<span style={{ color: "#609DFF" }}>I</span>R
       </span>
     </div>
   );
