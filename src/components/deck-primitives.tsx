@@ -1,6 +1,30 @@
 import { ReactNode } from "react";
 import { FluirLogo } from "./FluirLogo";
 
+export function SlideHeader() {
+  return (
+    <div
+      className="absolute top-0 left-0 right-0 z-20 flex items-center gap-3 px-10 h-14"
+      style={{
+        background:
+          "linear-gradient(180deg, rgba(2,13,31,0.55) 0%, rgba(2,13,31,0) 100%)",
+      }}
+    >
+      <FluirLogo size={40} />
+      <span
+        style={{
+          color: "#F0D78C",
+          fontWeight: 700,
+          fontSize: 16,
+          letterSpacing: "0.04em",
+        }}
+      >
+        Fluir Consultoria
+      </span>
+    </div>
+  );
+}
+
 export function SlideWrapper({
   children,
   showLogo = true,
@@ -24,12 +48,8 @@ export function SlideWrapper({
           : { backgroundColor: "#041938" }
       }
     >
+      {showLogo && <SlideHeader />}
       {children}
-      {showLogo && (
-        <div className="absolute bottom-6 left-8 opacity-90">
-          <FluirLogo size={42} />
-        </div>
-      )}
     </div>
   );
 }
