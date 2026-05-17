@@ -9,10 +9,8 @@ const brands = [
 export function Slide6Brands() {
   return (
     <SlideWrapper>
-      <SlideHeadline className="text-4xl md:text-5xl max-w-5xl">
-        As maiores marcas do Brasil já operam aqui.
-        <br />
-        Seu concorrente provavelmente também.
+      <SlideHeadline className="text-2xl md:text-3xl max-w-4xl">
+        Grandes marcas já operam aqui.
       </SlideHeadline>
 
       <div className="flex-1 grid grid-cols-4 grid-rows-3 gap-5 mt-10 max-w-6xl mx-auto w-full">

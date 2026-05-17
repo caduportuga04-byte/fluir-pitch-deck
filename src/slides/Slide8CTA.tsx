@@ -1,5 +1,4 @@
 import { SlideWrapper, GoldDivider } from "@/components/deck-primitives";
-import { FluirLogo } from "@/components/FluirLogo";
 
 export function Slide8CTA() {
   return (

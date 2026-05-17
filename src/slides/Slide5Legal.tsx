@@ -5,11 +5,13 @@ import {
   SlideHeadline,
   LegalFooter,
 } from "@/components/deck-primitives";
+import pressGazeta from "@/assets/press-gazeta.png";
+import pressG1 from "@/assets/press-g1.png";
 
 function PillarCard({ icon, title }: { icon: ReactNode; title: string }) {
   return (
     <div
-      className="rounded-xl flex items-center gap-4 px-4 py-3"
+      className="rounded-xl flex items-center gap-3 px-4 py-3"
       style={{
         backgroundColor: "#09151A",
         border: "1px solid #C9A84C",
@@ -17,7 +19,12 @@ function PillarCard({ icon, title }: { icon: ReactNode; title: string }) {
     >
       <div style={{ color: "#F0D78C" }}>{icon}</div>
       <div
-        style={{ color: "#F5F0F0", fontWeight: 600, fontSize: 14, lineHeight: 1.25 }}
+        style={{
+          color: "#F5F0F0",
+          fontWeight: 600,
+          fontSize: 13,
+          lineHeight: 1.25,
+        }}
       >
         {title}
       </div>
@@ -29,16 +36,18 @@ function PressCard({
   source,
   sourceBg,
   sourceColor,
-  headline,
+  image,
+  alt,
 }: {
   source: string;
   sourceBg: string;
   sourceColor: string;
-  headline: string;
+  image: string;
+  alt: string;
 }) {
   return (
     <div
-      className="rounded-lg p-5"
+      className="rounded-lg p-4"
       style={{
         backgroundColor: "#09151A",
         borderLeft: "3px solid #C9A84C",
@@ -55,12 +64,20 @@ function PressCard({
       >
         {source}
       </span>
-      <p
-        className="mt-3 italic leading-snug"
-        style={{ color: "#F5F0F0", fontWeight: 500, fontSize: 16 }}
+      <div
+        className="mt-3 rounded overflow-hidden"
+        style={{ backgroundColor: "#F5F0F0" }}
       >
-        "{headline}"
-      </p>
+        <img
+          src={image}
+          alt={alt}
+          style={{
+            width: "100%",
+            display: "block",
+            objectFit: "contain",
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -68,46 +85,48 @@ function PressCard({
 export function Slide5Legal() {
   return (
     <SlideWrapper>
-      <SlideHeadline className="text-3xl md:text-4xl max-w-5xl">
-        Base legal consolidada. Incentivos convalidados e prorrogados até 2032.
+      <SlideHeadline className="text-2xl md:text-3xl max-w-4xl">
+        Base legal consolidada. Incentivos válidos até 2032.
       </SlideHeadline>
       <p
-        className="mt-3 text-sm max-w-3xl"
+        className="mt-2 text-xs max-w-3xl"
         style={{ color: "#E2E6E9", fontWeight: 500 }}
       >
         Convalidados via LC 160/2017 e Convênio ICMS 190/2017 do CONFAZ
       </p>
 
-      <div className="flex-1 grid grid-cols-5 gap-8 mt-8 min-h-0 pb-10">
-        {/* Left column: 3 pillars (40%) */}
+      <div className="flex-1 grid grid-cols-5 gap-6 mt-6 min-h-0 pb-10">
+        {/* Left: pillars */}
         <div className="col-span-2 flex flex-col gap-3 justify-center">
           <PillarCard
-            icon={<Shield size={28} strokeWidth={1.6} />}
+            icon={<Shield size={24} strokeWidth={1.6} />}
             title="Convalidado no CONFAZ"
           />
           <PillarCard
-            icon={<Calendar size={28} strokeWidth={1.6} />}
+            icon={<Calendar size={24} strokeWidth={1.6} />}
             title="Válido até 2032"
           />
           <PillarCard
-            icon={<TrendingUp size={28} strokeWidth={1.6} />}
+            icon={<TrendingUp size={24} strokeWidth={1.6} />}
             title="Previsibilidade para o investidor"
           />
         </div>
 
-        {/* Right column: press clippings (60%) */}
-        <div className="col-span-3 flex flex-col gap-4 justify-center">
+        {/* Right: press clippings */}
+        <div className="col-span-3 flex flex-col gap-3 justify-center">
           <PressCard
             source="Gazeta ES"
             sourceBg="rgba(96, 157, 255, 0.15)"
             sourceColor="#609DFF"
-            headline="Reforma tributária: ES poderá manter incentivos fiscais até 2032"
+            image={pressGazeta}
+            alt="Reforma tributária: ES poderá manter incentivos fiscais até 2032"
           />
           <PressCard
             source="G1"
             sourceBg="#c4202a"
             sourceColor="#FFFFFF"
-            headline="Senado aprova projeto que prorroga incentivos fiscais no ICMS para quatro setores até 2032"
+            image={pressG1}
+            alt="Senado aprova projeto que prorroga incentivos fiscais no ICMS para quatro setores até 2032"
           />
         </div>
       </div>
