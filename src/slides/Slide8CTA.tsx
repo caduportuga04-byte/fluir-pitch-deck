@@ -1,9 +1,8 @@
 import { SlideWrapper, GoldDivider } from "@/components/deck-primitives";
-import { FluirLogo } from "@/components/FluirLogo";
 
 export function Slide8CTA() {
   return (
-    <SlideWrapper showLogo={false} gradient>
+    <SlideWrapper gradient>
       <div className="flex-1 flex flex-col items-center justify-center text-center">
         <GoldDivider className="mb-12" />
 
@@ -34,11 +33,8 @@ export function Slide8CTA() {
           → Abrir Planilha de Pré-Viabilidade
         </button>
 
-        <div className="mt-12">
-          <FluirLogo size={64} />
-        </div>
         <div
-          className="mt-4 text-sm"
+          className="mt-12 text-sm"
           style={{ color: "#E2E6E9", fontWeight: 400 }}
         >
           contato@fluirconsultoria.com.br · Vitória — Espírito Santo
