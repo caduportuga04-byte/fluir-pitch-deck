@@ -7,11 +7,11 @@ export function SlideHeader() {
       className="absolute z-20 flex items-center gap-3"
       style={{ top: 24, left: 32 }}
     >
-      <FluirLogo size={32} />
+      <FluirLogo size={48} />
       <span
         style={{
           fontWeight: 700,
-          fontSize: 18,
+          fontSize: 24,
           letterSpacing: "0.15em",
           color: "#F5F0F0",
           lineHeight: 1,
