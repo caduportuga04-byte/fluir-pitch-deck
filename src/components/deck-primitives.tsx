@@ -37,25 +37,15 @@ export function SlideWrapper({
   return (
     <div
       className={`relative w-full h-full overflow-hidden px-16 pb-14 flex flex-col ${className}`}
-      style={
-        gradient
-          ? { paddingTop: 56 }
-          : { paddingTop: showLogo ? 130 : 56 }
-      }
-      {...({} as any)}
-    />
-  );
-  /* unreachable */
-  return (
-    <div
-      style={
-        gradient
+      style={{
+        paddingTop: gradient ? 56 : showLogo ? 130 : 56,
+        ...(gradient
           ? {
               background:
                 "linear-gradient(180deg, #0A2A5C 0%, #020D1F 100%)",
             }
-          : { backgroundColor: "#041938" }
-      }
+          : { backgroundColor: "#041938" }),
+      }}
     >
       {showLogo && <SlideHeader />}
       {children}
