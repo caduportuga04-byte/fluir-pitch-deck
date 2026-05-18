@@ -36,7 +36,18 @@ export function SlideWrapper({
 }) {
   return (
     <div
-      className={`relative w-full h-full overflow-hidden px-16 py-14 flex flex-col ${className}`}
+      className={`relative w-full h-full overflow-hidden px-16 pb-14 flex flex-col ${className}`}
+      style={
+        gradient
+          ? { paddingTop: 56 }
+          : { paddingTop: showLogo ? 130 : 56 }
+      }
+      {...({} as any)}
+    />
+  );
+  /* unreachable */
+  return (
+    <div
       style={
         gradient
           ? {
