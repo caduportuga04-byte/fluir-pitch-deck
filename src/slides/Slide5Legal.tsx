@@ -1,12 +1,10 @@
-import { Shield, Calendar, TrendingUp } from "lucide-react";
+import { Shield, Calendar, TrendingUp, Newspaper } from "lucide-react";
 import { ReactNode } from "react";
 import {
   SlideWrapper,
   SlideHeadline,
   LegalFooter,
 } from "@/components/deck-primitives";
-import pressGazeta from "@/assets/press-gazeta.png";
-import pressG1 from "@/assets/press-g1.png";
 
 function PillarCard({ icon, title }: { icon: ReactNode; title: string }) {
   return (
@@ -36,42 +34,47 @@ function PressCard({
   source,
   sourceBg,
   sourceColor,
-  image,
-  alt,
+  date,
+  headline,
+  highlight,
 }: {
   source: string;
   sourceBg: string;
   sourceColor: string;
-  image: string;
-  alt: string;
+  date: string;
+  headline: string;
+  highlight: string;
 }) {
+  const parts = headline.split(highlight);
   return (
     <div
-      className="rounded-lg overflow-hidden flex"
+      className="rounded-lg overflow-hidden flex items-stretch"
       style={{
         backgroundColor: "#F5F0F0",
         boxShadow: "0 8px 24px -10px rgba(0,0,0,0.5)",
         borderLeft: "4px solid #C9A84C",
+        minHeight: 110,
       }}
     >
       {/* Source strip */}
       <div
-        className="flex flex-col items-center justify-center px-4 py-3"
+        className="flex flex-col items-center justify-center px-4"
         style={{
           backgroundColor: sourceBg,
-          minWidth: 90,
+          minWidth: 110,
         }}
       >
+        <Newspaper size={20} style={{ color: sourceColor, opacity: 0.85 }} />
         <span
           style={{
             color: sourceColor,
             fontWeight: 800,
-            fontSize: 13,
-            letterSpacing: "0.14em",
+            fontSize: 14,
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
-            writingMode: "horizontal-tb",
-            textAlign: "center",
+            marginTop: 6,
             lineHeight: 1.1,
+            textAlign: "center",
           }}
         >
           {source}
@@ -79,9 +82,9 @@ function PressCard({
         <span
           style={{
             color: sourceColor,
-            opacity: 0.75,
+            opacity: 0.7,
             fontSize: 9,
-            marginTop: 4,
+            marginTop: 3,
             letterSpacing: "0.1em",
             textTransform: "uppercase",
           }}
@@ -90,18 +93,33 @@ function PressCard({
         </span>
       </div>
 
-      {/* Headline image */}
-      <div className="flex-1 flex items-center justify-center px-5 py-4">
-        <img
-          src={image}
-          alt={alt}
+      {/* Content */}
+      <div className="flex-1 flex flex-col justify-center px-5 py-3">
+        <div
           style={{
-            width: "100%",
-            maxHeight: 140,
-            objectFit: "contain",
-            objectPosition: "left center",
+            color: "#8B7355",
+            fontSize: 10,
+            fontWeight: 700,
+            letterSpacing: "0.12em",
+            textTransform: "uppercase",
+            marginBottom: 5,
           }}
-        />
+        >
+          {date}
+        </div>
+        <div
+          style={{
+            color: "#1a1a1a",
+            fontWeight: 700,
+            fontSize: 15,
+            lineHeight: 1.3,
+            fontFamily: "Georgia, 'Times New Roman', serif",
+          }}
+        >
+          {parts[0]}
+          <span style={{ color: "#a8842a" }}>{highlight}</span>
+          {parts[1]}
+        </div>
       </div>
     </div>
   );
@@ -138,20 +156,22 @@ export function Slide5Legal() {
         </div>
 
         {/* Right: press clippings */}
-        <div className="col-span-3 flex flex-col gap-3 justify-center">
+        <div className="col-span-3 flex flex-col gap-4 justify-center">
           <PressCard
             source="Gazeta ES"
-            sourceBg="rgba(96, 157, 255, 0.15)"
-            sourceColor="#609DFF"
-            image={pressGazeta}
-            alt="Reforma tributária: ES poderá manter incentivos fiscais até 2032"
+            sourceBg="rgba(30, 58, 138, 0.12)"
+            sourceColor="#1e3a8a"
+            date="Reforma Tributária"
+            headline="ES poderá manter incentivos fiscais até 2032 após reforma"
+            highlight="até 2032"
           />
           <PressCard
             source="G1"
             sourceBg="#c4202a"
             sourceColor="#FFFFFF"
-            image={pressG1}
-            alt="Senado aprova projeto que prorroga incentivos fiscais no ICMS para quatro setores até 2032"
+            date="Senado Federal"
+            headline="Senado aprova projeto que prorroga incentivos fiscais do ICMS até 2032"
+            highlight="prorroga incentivos fiscais"
           />
         </div>
       </div>
