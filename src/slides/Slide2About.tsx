@@ -16,13 +16,13 @@ export function Slide2About() {
         }}
       >
         <div
-          className="text-[11px] uppercase tracking-widest mb-1"
+          className="text-xs uppercase tracking-widest mb-2"
           style={{ color: "#F0D78C", fontWeight: 600 }}
         >
           Nossa Missão
         </div>
         <div
-          className="text-base md:text-lg leading-snug"
+          className="text-lg md:text-xl leading-snug"
           style={{ color: "#F5F0F0", fontWeight: 600 }}
         >
           Transformar incentivo fiscal em vantagem competitiva real — da
@@ -31,7 +31,7 @@ export function Slide2About() {
       </div>
 
       <p
-        className="mt-4 max-w-4xl text-[13px] leading-relaxed"
+        className="mt-4 max-w-4xl text-base leading-relaxed"
         style={{ color: "#E2E6E9", fontWeight: 400 }}
       >
         A Fluir é uma consultoria full-service especializada em estruturar
@@ -41,7 +41,7 @@ export function Slide2About() {
         aprovado à apuração mensal.
       </p>
 
-      <div className="grid grid-cols-3 gap-5 mt-auto pt-6 max-w-5xl">
+      <div className="grid grid-cols-3 gap-5 mt-6 max-w-5xl">
         <MetricCard icon={<Shield size={28} strokeWidth={1.6} />} title="Estruturação Tributária" />
         <MetricCard icon={<Truck size={28} strokeWidth={1.6} />} title="Consultoria Logística" />
         <MetricCard icon={<Settings size={28} strokeWidth={1.6} />} title="Operação Completa" />
