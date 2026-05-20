@@ -58,7 +58,6 @@ function BrandCard({ name, logo }: { name: string; logo: string }) {
             maxWidth: "100%",
             objectFit: "contain",
             filter: "brightness(0) invert(1)",
-            mixBlendMode: "screen",
           }}
         />
       )}
