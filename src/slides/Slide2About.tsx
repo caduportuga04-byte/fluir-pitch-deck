@@ -12,7 +12,7 @@ export function Slide2About() {
           </SlideHeadline>
 
           <div
-            className="mt-3 rounded-lg p-4 max-w-4xl"
+            className="mt-8 rounded-lg p-4 max-w-4xl"
             style={{ backgroundColor: "#09151A", border: "2px solid #C9A84C" }}
           >
             <div className="text-xs uppercase tracking-widest mb-1" style={{ color: "#F0D78C", fontWeight: 600 }}>
