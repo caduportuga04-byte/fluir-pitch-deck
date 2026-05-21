@@ -9,7 +9,7 @@ import {
 function PillarCard({ icon, title }: { icon: ReactNode; title: string }) {
   return (
     <div
-      className="rounded-xl flex items-center gap-3 px-4 py-3"
+      className="rounded-xl flex items-center gap-4 px-6 py-5 w-full"
       style={{
         backgroundColor: "#09151A",
         border: "1px solid #C9A84C",
@@ -20,7 +20,7 @@ function PillarCard({ icon, title }: { icon: ReactNode; title: string }) {
         style={{
           color: "#F5F0F0",
           fontWeight: 600,
-          fontSize: 13,
+          fontSize: 15,
           lineHeight: 1.25,
         }}
       >
@@ -132,7 +132,7 @@ export function Slide5Legal() {
         Base legal consolidada. Incentivos válidos até 2032.
       </SlideHeadline>
       <p
-        className="mt-2 text-xs max-w-3xl"
+        className="mt-2 text-sm max-w-3xl"
         style={{ color: "#E2E6E9", fontWeight: 500 }}
       >
         Convalidados via LC 160/2017 e Convênio ICMS 190/2017 do CONFAZ

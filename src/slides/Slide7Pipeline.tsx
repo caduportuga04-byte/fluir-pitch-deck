@@ -70,7 +70,7 @@ export function Slide7Pipeline() {
         Da decisão à operação: entregamos tudo, de ponta a ponta.
       </SlideHeadline>
 
-      <div className="flex-1 flex items-center justify-center mt-8">
+      <div className="flex-1 flex items-center justify-center mt-3">
         <div
           className="w-full max-w-6xl rounded-2xl"
           style={{ backgroundColor: "#09151A", padding: 32, border: "1px solid #194A99" }}
