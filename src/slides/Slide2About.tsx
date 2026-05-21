@@ -26,10 +26,9 @@ export function Slide2About() {
         Entregamos a operação funcionando, do incentivo aprovado à apuração mensal.
       </p>
 
-      {/* Espaço proporcional: 3 partes acima, cards, 2 partes abaixo */}
-      <div className="flex-1 flex flex-col min-h-0">
-        <div style={{ flex: 3 }} />
-        <div className="grid grid-cols-3 gap-5 w-full max-w-5xl">
+      {/* Posição absoluta: bottom controla altura, ajuste em % para subir/descer */}
+      <div className="absolute left-16 right-16" style={{ bottom: "12%" }}>
+        <div className="grid grid-cols-3 gap-5 max-w-5xl">
           {[
             { icon: <Shield size={36} strokeWidth={1.4} />, label: "Estruturação Tributária" },
             { icon: <Truck size={36} strokeWidth={1.4} />, label: "Consultoria Logística" },
@@ -49,7 +48,6 @@ export function Slide2About() {
             </div>
           ))}
         </div>
-        <div style={{ flex: 2 }} />
       </div>
     </SlideWrapper>
   );
