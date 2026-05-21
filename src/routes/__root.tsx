@@ -7,6 +7,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { BuildStatusIndicator } from "@/components/BuildStatusIndicator";
+
 
 import appCss from "../styles.css?url";
 
