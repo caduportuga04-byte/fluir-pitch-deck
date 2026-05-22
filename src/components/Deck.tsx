@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
-import { exportToPptx } from "@/lib/exportToPptx";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Slide1Cover } from "@/slides/Slide1Cover";
 import { Slide2About } from "@/slides/Slide2About";
 import { Slide3WhyES } from "@/slides/Slide3WhyES";
@@ -24,14 +23,6 @@ const slides = [
 export function Deck() {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
-  const [exporting, setExporting] = useState(false);
-
-  const handleExport = async () => {
-    setExporting(true);
-    await exportToPptx();
-    setExporting(false);
-  };
-
   const go = (next: number) => {
     if (next < 0 || next >= slides.length) return;
     setDirection(next > index ? 1 : -1);
@@ -109,18 +100,6 @@ export function Deck() {
       >
         {String(index + 1).padStart(2, "0")} / {String(slides.length).padStart(2, "0")}
       </div>
-
-      {/* Export button */}
-      <button
-        onClick={handleExport}
-        disabled={exporting}
-        title="Exportar para PowerPoint"
-        className="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-opacity disabled:opacity-40"
-        style={{ backgroundColor: "rgba(9,21,26,0.85)", color: "#C9A84C", border: "1px solid #C9A84C" }}
-      >
-        <Download size={14} />
-        {exporting ? "Gerando..." : "Exportar .pptx"}
-      </button>
 
       <style>{`
         @keyframes slideIn-right {

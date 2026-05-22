@@ -7,9 +7,6 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { BuildStatusIndicator } from "@/components/BuildStatusIndicator";
-
-
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -120,7 +117,6 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
-      <BuildStatusIndicator />
     </QueryClientProvider>
   );
 }
