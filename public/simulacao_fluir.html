@@ -860,6 +860,13 @@ tr.proj-head-row th { background: #1e4080; }
         <!-- Mensagem de status -->
         <div id="env_status" style="display:none;margin-top:14px;padding:12px 16px;border-radius:4px;font-size:13px;font-weight:700;text-align:center;"></div>
 
+        <!-- Botão salvar proposta -->
+        <button id="save_btn" onclick="salvarProposta()" class="btn btn-blue"
+          style="width:100%;margin-top:12px;padding:12px;font-size:14px;letter-spacing:0.3px;">
+          💾 Salvar Proposta
+        </button>
+        <div style="text-align:center;margin-top:6px;font-size:11px;color:#888;">Cole o link no WhatsApp ou e-mail — o cliente abre a simulação com os valores travados.</div>
+
       </div>
     </div>
 
@@ -1148,6 +1155,36 @@ function buildAliqTable() {
 // ===== INIT =====
 buildAliqTable();
 calc();
+
+// ===== SALVAR PROPOSTA =====
+function salvarProposta() {
+  var fat   = parseFloat(document.getElementById('c11').value) || 0;
+  var comp  = parseFloat(document.getElementById('c7').value)  || 0;
+  var aliqO = parseFloat(document.getElementById('c8').value)  / 100 || 0;
+  var aliqS = parseFloat(document.getElementById('c12').value) / 100 || 0;
+
+  // Mesmo cálculo do n8n
+  var C9       = comp * aliqO;
+  var C13      = fat  * aliqS;
+  var icmsNorm = Math.max(C13 - C9, 0);
+  var icmsES   = fat  * 0.0114;
+  var economia = Math.max(icmsNorm - icmsES, 0);
+  var anual    = economia * 12;
+
+  var url = 'https://fluent-boost-deck.lovable.app' +
+    '?icms_atual=' + Math.round(icmsNorm) +
+    '&icms_es='    + Math.round(icmsES)   +
+    '&economia='   + Math.round(economia) +
+    '&anual='      + Math.round(anual);
+
+  var btn = document.getElementById('save_btn');
+  navigator.clipboard.writeText(url).then(function() {
+    btn.textContent = '✅ Link copiado!';
+    setTimeout(function() { btn.textContent = '💾 Salvar Proposta'; }, 2500);
+  }).catch(function() {
+    prompt('Copie o link abaixo:', url);
+  });
+}
 
 // ===== VIEW MODE (link do email) =====
 (function(){
