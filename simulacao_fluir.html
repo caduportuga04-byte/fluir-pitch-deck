@@ -668,6 +668,8 @@ tr.proj-head-row th { background: #1e4080; }
   <div class="actions">
     <button class="btn btn-gold" onclick="window.print()">🖨️ Gerar PDF</button>
     <button class="btn btn-blue" onclick="showTab('resumo')">📋 Ver Resumo da Operação →</button>
+    <button class="btn" onclick="abrirProposta()" style="background:#1a7a4a;color:#fff;">📊 Gerar Proposta Comercial</button>
+    <button class="btn" id="btn-salvar-sim" onclick="salvarProposta()" style="background:#5a3e99;color:#fff;">💾 Salvar Proposta</button>
   </div>
 
 </div><!-- /tab-sim -->
@@ -781,6 +783,8 @@ tr.proj-head-row th { background: #1e4080; }
   <div class="actions">
     <button class="btn btn-gold" onclick="window.print()">🖨️ Gerar PDF</button>
     <button class="btn btn-blue" onclick="showTab('sim')">← Voltar à Simulação</button>
+    <button class="btn" onclick="abrirProposta()" style="background:#1a7a4a;color:#fff;">📊 Gerar Proposta Comercial</button>
+    <button class="btn" id="btn-salvar-resumo" onclick="salvarProposta()" style="background:#5a3e99;color:#fff;">💾 Salvar Proposta</button>
   </div>
 
 </div><!-- /tab-resumo -->
@@ -1177,10 +1181,12 @@ function salvarProposta() {
     '&economia='   + Math.round(economia) +
     '&anual='      + Math.round(anual);
 
-  var btn = document.getElementById('save_btn');
+  var ids = ['save_btn', 'btn-salvar-sim', 'btn-salvar-resumo'];
   navigator.clipboard.writeText(url).then(function() {
-    btn.textContent = '✅ Link copiado!';
-    setTimeout(function() { btn.textContent = '💾 Salvar Proposta'; }, 2500);
+    ids.forEach(function(id) {
+      var b = document.getElementById(id);
+      if (b) { b.textContent = '✅ Link copiado!'; setTimeout(function(){ b.textContent = '💾 Salvar Proposta'; }, 2500); }
+    });
   }).catch(function() {
     prompt('Copie o link abaixo:', url);
   });
