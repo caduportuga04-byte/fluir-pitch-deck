@@ -27,7 +27,7 @@ export function Slide4Scale() {
             <BarChart
               data={data}
               layout="vertical"
-              margin={{ top: 20, right: 200, left: 20, bottom: 20 }}
+              margin={{ top: 20, right: 220, left: 20, bottom: 20 }}
             >
               <defs>
                 <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="0">
@@ -43,60 +43,60 @@ export function Slide4Scale() {
               <YAxis
                 type="category"
                 dataKey="name"
-                tick={{ fill: "#F5F0F0", fontSize: 16, fontWeight: 600 }}
+                tick={{ fill: "#F5F0F0", fontSize: 17, fontWeight: 600 }}
                 axisLine={false}
                 tickLine={false}
-                width={140}
+                width={150}
               />
-              <Bar dataKey="value" radius={[0, 8, 8, 0]} barSize={60}>
+              <Bar dataKey="value" radius={[0, 8, 8, 0]} barSize={72}>
                 {data.map((entry, i) => (
                   <Cell key={i} fill={entry.fill} />
                 ))}
                 <LabelList
                   dataKey="label"
                   position="right"
-                  style={{ fill: "#F5F0F0", fontSize: 20, fontWeight: 800 }}
+                  style={{ fill: "#F5F0F0", fontSize: 22, fontWeight: 800 }}
                 />
               </Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="w-64 flex flex-col justify-center gap-6">
+        <div className="w-72 flex flex-col justify-center gap-6">
           <div
-            className="rounded-lg p-4"
+            className="rounded-lg p-6"
             style={{
               backgroundColor: "rgba(196, 69, 69, 0.1)",
               border: "1px solid #c44545",
             }}
           >
-            <div className="flex items-start gap-2">
-              <div style={{ color: "#c44545", fontSize: 24, lineHeight: 1 }}>↓</div>
+            <div className="flex items-start gap-3">
+              <div style={{ color: "#c44545", fontSize: 28, lineHeight: 1 }}>↓</div>
               <div>
-                <div style={{ color: "#c44545", fontWeight: 700, fontSize: 14 }}>
+                <div style={{ color: "#c44545", fontWeight: 700, fontSize: 17 }}>
                   Sem incentivo
                 </div>
-                <div style={{ color: "#E2E6E9", fontSize: 12 }}>
-                  ICMS cheio
+                <div style={{ color: "#E2E6E9", fontSize: 14, marginTop: 4 }}>
+                  ICMS cheio sobre todas as operações
                 </div>
               </div>
             </div>
           </div>
           <div
-            className="rounded-lg p-4"
+            className="rounded-lg p-6"
             style={{
               backgroundColor: "rgba(45, 212, 126, 0.08)",
               border: "1px solid #2dd47e",
             }}
           >
-            <div className="flex items-start gap-2">
-              <div style={{ color: "#2dd47e", fontSize: 24, lineHeight: 1 }}>↑</div>
+            <div className="flex items-start gap-3">
+              <div style={{ color: "#2dd47e", fontSize: 28, lineHeight: 1 }}>↑</div>
               <div>
-                <div style={{ color: "#2dd47e", fontWeight: 700, fontSize: 14 }}>
-                  Com incentivo
+                <div style={{ color: "#2dd47e", fontWeight: 700, fontSize: 17 }}>
+                  Com incentivo ES
                 </div>
-                <div style={{ color: "#E2E6E9", fontSize: 12 }}>
-                  Economia real
+                <div style={{ color: "#E2E6E9", fontSize: 14, marginTop: 4 }}>
+                  ICMS de 1,14% — economia real mensal
                 </div>
               </div>
             </div>
