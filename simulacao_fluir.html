@@ -668,7 +668,7 @@ tr.proj-head-row th { background: #1e4080; }
   <div class="actions">
     <button class="btn btn-gold" onclick="window.print()">🖨️ Gerar PDF</button>
     <button class="btn btn-blue" onclick="showTab('resumo')">📋 Ver Resumo da Operação →</button>
-    <button class="btn" id="btn-salvar-sim" onclick="salvarProposta()" style="background:#1a7a4a;color:#fff;">📋 Abrir Proposta Comercial</button>
+    <button class="btn" id="btn-salvar-sim" onclick="salvarProposta()" style="background:#1a7a4a;color:#fff;">💾 Salvar Proposta</button>
   </div>
 
 </div><!-- /tab-sim -->
@@ -782,7 +782,7 @@ tr.proj-head-row th { background: #1e4080; }
   <div class="actions">
     <button class="btn btn-gold" onclick="window.print()">🖨️ Gerar PDF</button>
     <button class="btn btn-blue" onclick="showTab('sim')">← Voltar à Simulação</button>
-    <button class="btn" id="btn-salvar-resumo" onclick="salvarProposta()" style="background:#1a7a4a;color:#fff;">📋 Abrir Proposta Comercial</button>
+    <button class="btn" id="btn-salvar-resumo" onclick="salvarProposta()" style="background:#1a7a4a;color:#fff;">💾 Salvar Proposta</button>
   </div>
 
 </div><!-- /tab-resumo -->
@@ -865,7 +865,7 @@ tr.proj-head-row th { background: #1e4080; }
         <!-- Botão salvar proposta -->
         <button id="save_btn" onclick="salvarProposta()" class="btn"
           style="width:100%;margin-top:12px;padding:12px;font-size:14px;letter-spacing:0.3px;background:#1a7a4a;color:#fff;">
-          📋 Abrir Proposta Comercial
+          💾 Salvar Proposta
         </button>
         <div style="text-align:center;margin-top:6px;font-size:11px;color:#888;">Abre a proposta com os valores travados + copia o link para compartilhar.</div>
 
@@ -1184,12 +1184,12 @@ function salvarProposta() {
   navigator.clipboard.writeText(url).then(function() {
     ids.forEach(function(id) {
       var b = document.getElementById(id);
-      if (b) { b.textContent = '✅ Proposta aberta + link copiado!'; setTimeout(function(){ b.textContent = '📋 Abrir Proposta Comercial'; }, 3000); }
+      if (b) { b.textContent = '✅ Proposta salva + link copiado!'; setTimeout(function(){ b.textContent = '💾 Salvar Proposta'; }, 3000); }
     });
   }).catch(function() {
     ids.forEach(function(id) {
       var b = document.getElementById(id);
-      if (b) { b.textContent = '✅ Proposta aberta!'; setTimeout(function(){ b.textContent = '📋 Abrir Proposta Comercial'; }, 3000); }
+      if (b) { b.textContent = '✅ Proposta salva!'; setTimeout(function(){ b.textContent = '💾 Salvar Proposta'; }, 3000); }
     });
   });
 }
