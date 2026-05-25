@@ -881,6 +881,16 @@ tr.proj-head-row th { background: #1e4080; }
               <input type="number" id="prop_pct" placeholder="Ex: 8" min="6" max="12" step="0.5"
                 style="width:100%;padding:9px 12px;border:1px solid #b8cce0;border-radius:4px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a2e;background:#fff;">
             </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;letter-spacing:0.8px;color:#1e4080;text-transform:uppercase;display:block;margin-bottom:5px;">Mínimo mensal (R$)</label>
+              <input type="number" id="prop_minimo" placeholder="Ex: 2000" min="0"
+                style="width:100%;padding:9px 12px;border:1px solid #b8cce0;border-radius:4px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a2e;background:#fff;">
+            </div>
+            <div>
+              <label style="font-size:11px;font-weight:700;letter-spacing:0.8px;color:#1e4080;text-transform:uppercase;display:block;margin-bottom:5px;">Duração do contrato (meses)</label>
+              <input type="number" id="prop_meses" placeholder="Ex: 24" min="1"
+                style="width:100%;padding:9px 12px;border:1px solid #b8cce0;border-radius:4px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a2e;background:#fff;">
+            </div>
           </div>
         </div>
 
@@ -1199,7 +1209,9 @@ function salvarProposta() {
   var etapa1  = parseFloat(document.getElementById('prop_etapa1').value) || 0;
   var etapa2  = parseFloat(document.getElementById('prop_etapa2').value) || 0;
   var pctVal  = parseFloat(document.getElementById('prop_pct').value)    || 0;
-  var meses   = parseInt(document.getElementById('i9').value)            || 24;
+  var minimo  = parseFloat(document.getElementById('prop_minimo').value) || 0;
+  var mesesProp = parseInt(document.getElementById('prop_meses').value)  || 0;
+  var meses   = mesesProp || parseInt(document.getElementById('i9').value) || 24;
 
   var url = 'https://fluir-pitch-deck.pages.dev/proposta' +
     '?icms_atual=' + Math.round(icmsNorm) +
@@ -1210,6 +1222,7 @@ function salvarProposta() {
     (etapa1  ? '&etapa1='  + Math.round(etapa1)          : '') +
     (etapa2  ? '&etapa2='  + Math.round(etapa2)          : '') +
     (pctVal  ? '&pct='     + pctVal                      : '') +
+    (minimo  ? '&minimo='  + Math.round(minimo)          : '') +
     '&meses=' + meses;
 
   var ids = ['save_btn', 'btn-salvar-sim', 'btn-salvar-resumo'];

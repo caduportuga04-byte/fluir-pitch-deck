@@ -370,10 +370,11 @@ const icmsAtual = q.get('icms_atual') ? +q.get('icms_atual') : 340000;
 const icmsES    = q.get('icms_es')    ? +q.get('icms_es')    : 22800;
 const economia  = q.get('economia')   ? +q.get('economia')   : 317200;
 const anual     = q.get('anual')      ? +q.get('anual')      : economia * 12;
-const etapa1    = q.get('etapa1') ? +q.get('etapa1') : 0;
-const etapa2    = q.get('etapa2') ? +q.get('etapa2') : 0;
-const pct       = q.get('pct')    ? +q.get('pct')    : 0;
-const meses     = q.get('meses') || '24';
+const etapa1    = q.get('etapa1')  ? +q.get('etapa1')  : 0;
+const etapa2    = q.get('etapa2')  ? +q.get('etapa2')  : 0;
+const pct       = q.get('pct')     ? +q.get('pct')     : 0;
+const meses     = q.get('meses')   || '24';
+const minimo    = q.get('minimo')  ? +q.get('minimo')  : 0;
 const empresa   = q.get('empresa') || '';
 
 function brl(v){ return 'R$ ' + Number(v).toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0}); }
@@ -398,7 +399,7 @@ function porExtenso(n) {
   var mi = Math.floor(n/1000000), ml = Math.floor((n%1000000)/1000), cn = n%1000;
   var p = [];
   if (mi > 0) p.push(grupo(mi)+(mi===1?' milhão':' milhões'));
-  if (ml > 0) p.push(grupo(ml)+' mil');
+  if (ml > 0) p.push(ml === 1 ? 'mil' : grupo(ml)+' mil');
   if (cn > 0) p.push(grupo(cn));
   return p.join(' e ')+(n===1?' real':' reais');
 }
@@ -411,13 +412,13 @@ document.getElementById('v3').textContent = brl(economia);
 document.getElementById('v4').textContent = brl(anual);
 
 document.getElementById('e1').textContent  = etapa1 ? brl(etapa1) : 'A definir';
-document.getElementById('e1x').textContent = etapa1 ? porExtenso(etapa1) : '';
+document.getElementById('e1x').textContent = etapa1 ? '('+porExtenso(etapa1)+')' : '';
 document.getElementById('e2').textContent  = etapa2 ? brl(etapa2) : 'A definir';
-document.getElementById('e2x').textContent = etapa2 ? porExtenso(etapa2) : '';
+document.getElementById('e2x').textContent = etapa2 ? '('+porExtenso(etapa2)+')' : '';
 document.getElementById('e3').textContent  = pct ? pct+'% sobre a economia' : '% sobre a economia';
-var successFeeValor = pct && economia ? (pct/100)*economia : 0;
-document.getElementById('e3x').textContent = successFeeValor ? '≈ ' + porExtenso(Math.round(successFeeValor)) + '/mês' : '';
-document.getElementById('e3b').innerHTML   = 'Mínimo de R$ 2.000/mês.<br>Contrato de '+meses+' meses.<br>Inicia somente com a operação ativa.';
+document.getElementById('e3x').textContent = '';
+var minimoTexto = minimo ? brl(minimo) : 'R$ 2.000';
+document.getElementById('e3b').innerHTML   = 'Mínimo de '+minimoTexto+'/mês.<br>Contrato de '+meses+' meses.<br>Inicia somente com a operação ativa.';
 
 const mns=['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const nd=new Date();
