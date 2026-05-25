@@ -43,7 +43,7 @@ export function Deck() {
   return (
     <div
       className="w-screen h-screen overflow-hidden relative"
-      style={{ backgroundColor: "#020D1F" }}
+      style={{ backgroundColor: "#020D1F", padding: "clamp(8px, 2.5vh, 28px) clamp(8px, 2.5vw, 28px)" }}
       onClick={(e) => {
         // Don't advance when clicking buttons
         const t = e.target as HTMLElement;
