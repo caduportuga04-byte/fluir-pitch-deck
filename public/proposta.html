@@ -16,9 +16,9 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:radial-gradient(ellipse at top,#0A2A5C 0%,#041938 55%,#020D1F 100%) fixed;height:100%;color:var(--text-white);font-family:'Merriweather',serif;overflow:hidden}
-.slide{display:none;height:100vh;overflow:hidden;position:relative;z-index:1}
-.slide.active{display:flex;flex-direction:column}
-.sc{position:relative;z-index:10;height:100%;padding:56px 80px;display:flex;flex-direction:column}
+.slide{display:none;position:relative;z-index:1}
+.slide.active{display:block}
+.sc{position:relative;z-index:10;height:100vh;overflow:hidden;padding:56px 80px;display:flex;flex-direction:column}
 @media(max-width:768px){.sc{padding:48px 24px}}
 
 @keyframes fi{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
@@ -111,7 +111,7 @@ input:focus{box-shadow:0 0 0 1px var(--accent)}
       <p style="font-size:11px;letter-spacing:.3em;color:var(--accent)">CENÁRIO</p>
       <h2 style="font-size:34px;font-weight:700;margin-top:8px">O Cenário Identificado <span style="color:var(--accent)">— ICMS</span></h2>
     </div>
-    <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:28px;padding:16px 0">
+    <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly">
       <div id="a1" style="opacity:0;width:45%"><div class="chv" style="background:linear-gradient(135deg,#7a2828,#c44545)">
         <div><p style="font-size:11px;letter-spacing:.25em;opacity:.8;text-transform:uppercase">Situação Atual</p><p style="font-size:24px;font-weight:900;margin-top:4px" id="v1"></p></div>
         <p style="font-size:12px;opacity:.9;font-style:italic;margin-right:32px">ICMS / mês</p>
@@ -124,13 +124,13 @@ input:focus{box-shadow:0 0 0 1px var(--accent)}
         <div><p style="font-size:11px;letter-spacing:.25em;opacity:.8;text-transform:uppercase">Resultado · Economia</p><p style="font-size:24px;font-weight:900;margin-top:4px" id="v3"></p></div>
         <p style="font-size:12px;opacity:.9;font-style:italic;margin-right:32px">ICMS / mês</p>
       </div></div>
+      <div id="acard" style="display:none;padding:20px 40px;border-radius:16px;border:1px solid rgba(96,157,255,.4);background:rgba(9,21,26,.7);backdrop-filter:blur(8px);box-shadow:var(--shadow-prem);text-align:center;align-self:center" class="cu">
+        <p style="font-size:11px;letter-spacing:.3em;color:var(--accent);margin-bottom:4px">ECONOMIA ANUAL ESTIMADA</p>
+        <p id="v4" style="font-size:40px;font-weight:900;background:linear-gradient(135deg,#2dd47e,#8FB8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></p>
+      </div>
     </div>
-    <div id="acard" style="display:none;margin:16px auto;padding:20px 40px;border-radius:16px;border:1px solid rgba(96,157,255,.4);background:rgba(9,21,26,.7);backdrop-filter:blur(8px);box-shadow:var(--shadow-prem)" class="cu">
-      <p style="font-size:11px;letter-spacing:.3em;color:var(--accent);text-align:center;margin-bottom:4px">ECONOMIA ANUAL ESTIMADA</p>
-      <p id="v4" style="font-size:40px;font-weight:900;text-align:center;background:linear-gradient(135deg,#2dd47e,#8FB8FF);-webkit-background-clip:text;-webkit-text-fill-color:transparent"></p>
-    </div>
-    <p style="text-align:center;font-size:14px;font-style:italic;color:var(--text-gray);margin-top:16px">Valores ilustrativos da pré-viabilidade; esta proposta detalha como capturá-los.</p>
-    <p id="hint" style="position:absolute;bottom:80px;right:64px;font-size:12px;color:var(--accent)">Clique para continuar →</p>
+    <p style="text-align:center;font-size:13px;font-style:italic;color:var(--text-gray);padding-bottom:8px">Valores ilustrativos da pré-viabilidade; esta proposta detalha como capturá-los.</p>
+    <p id="hint" style="position:absolute;bottom:56px;right:64px;font-size:12px;color:var(--accent)">Clique para continuar →</p>
   </div>
 </div>
 
