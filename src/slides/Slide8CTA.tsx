@@ -22,7 +22,7 @@ export function Slide8CTA() {
         </p>
 
         <a
-          href="https://espirit-boost-deck.lovable.app/simulacao_fluir.html"
+          href="https://fluir-pitch-deck.pages.dev/simulacao_fluir"
           target="_blank"
           rel="noopener noreferrer"
           className="mt-10 inline-block px-10 py-5 rounded-xl text-lg transition-transform hover:scale-105"
