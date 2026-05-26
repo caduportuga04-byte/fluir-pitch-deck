@@ -26,7 +26,7 @@ export function Slide1Cover() {
       />
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center">
-        <div className="flex items-center gap-6">
+        <div className="flex flex-col items-center gap-6">
           <FluirLogo size={120} />
           <span
             style={{
