@@ -10,8 +10,8 @@ type Step = {
 
 const steps: Step[] = [
   { n: 1, icon: Calculator, label: "Viabilidade", desc: "Projeção da planilha atacadista" },
-  { n: 2, icon: Truck, label: "Logística", desc: "Definição de parceiros" },
-  { n: 3, icon: Building2, label: "Abertura CNPJ", desc: "Obrigações societárias" },
+  { n: 2, icon: Truck, label: "Consultoria Logística", desc: "Definição de parceiros" },
+  { n: 3, icon: Building2, label: "Abertura de CNPJ", desc: "Obrigações societárias" },
   { n: 4, icon: FileCheck, label: "Solicitação Incentivo", desc: "Aprovação estadual" },
   { n: 5, icon: BarChart3, label: "Apuração", desc: "Mensal no contrato" },
 ];
