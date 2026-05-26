@@ -11,7 +11,7 @@ export function Slide3WhyES() {
           fontSize: "clamp(1.4rem, 2.4vw, 1.9rem)",
         }}
       >
-        O Espírito Santo transformou incentivo fiscal em vantagem competitiva permanente.
+        Você provavelmente está pagando mais ICMS do que precisa.
       </h1>
 
       {/* Two program cards on top */}
