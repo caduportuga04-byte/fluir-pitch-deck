@@ -1,5 +1,6 @@
 import { SlideWrapper, GoldDivider } from "@/components/deck-primitives";
 import porto from "@/assets/porto-vitoria.jpeg";
+import fluirLogo from "@/assets/fluir-logo.png";
 
 export function Slide1Cover() {
   return (
@@ -25,21 +26,14 @@ export function Slide1Cover() {
       />
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center">
-        <GoldDivider className="mb-12" />
-        <h1
-          className="max-w-5xl leading-tight"
-          style={{
-            color: "#F5F0F0",
-            fontWeight: 800,
-            fontSize: "clamp(2rem, 4vw, 3.5rem)",
-          }}
-        >
-          Menos ICMS. Mais margem.
-          <br />
-          Operação estruturada no ES.
-        </h1>
+        <img
+          src={fluirLogo}
+          alt="Fluir"
+          style={{ height: "clamp(120px, 18vw, 200px)", objectFit: "contain" }}
+        />
+        <GoldDivider className="mt-10 mb-8" />
         <p
-          className="mt-10 text-lg md:text-xl max-w-3xl"
+          className="text-lg md:text-xl max-w-3xl"
           style={{ color: "#E2E6E9", fontWeight: 400 }}
         >
           Consultoria especializada em estruturação tributária e atração de
