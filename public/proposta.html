@@ -346,7 +346,8 @@ input:focus{box-shadow:0 0 0 1px var(--accent)}
     <div id="mform">
       <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:24px">
         <div><label style="display:block;font-size:11px;font-weight:600;color:var(--text-gray);margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase">Nome do contato</label><input type="text" id="fn" placeholder="João Silva"></div>
-        <div><label style="display:block;font-size:11px;font-weight:600;color:var(--text-gray);margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase">Email</label><input type="email" id="fe" placeholder="joao@empresa.com.br"></div>
+        <div><label style="display:block;font-size:11px;font-weight:600;color:var(--text-gray);margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase">Email</label><input type="text" id="fe" placeholder="joao@empresa.com.br"></div>
+        <div><label style="display:block;font-size:11px;font-weight:600;color:var(--text-gray);margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase">CC (opcional)</label><input type="text" id="fcc" placeholder="copia@empresa.com, outro@empresa.com"><div style="font-size:11px;color:var(--text-gray);margin-top:3px;opacity:.7">Separe múltiplos emails por vírgula</div></div>
         <div><label style="display:block;font-size:11px;font-weight:600;color:var(--text-gray);margin-bottom:4px;letter-spacing:.1em;text-transform:uppercase">Empresa</label><input type="text" id="fep" placeholder="Distribuidora Alfa Ltda"></div>
       </div>
       <p id="merr" style="color:#f87171;font-size:13px;margin-bottom:16px;display:none">Erro ao enviar. Tente novamente.</p>
@@ -466,12 +467,12 @@ function toggleFS(){ if(!document.fullscreenElement) document.documentElement.re
 function openModal(){ document.getElementById('modal').classList.add('open'); document.getElementById('mform').style.display='block'; document.getElementById('mok').style.display='none'; document.getElementById('merr').style.display='none'; }
 function closeModal(){ document.getElementById('modal').classList.remove('open'); }
 async function enviar(){
-  const n=document.getElementById('fn').value.trim(), em=document.getElementById('fe').value.trim(), ep=document.getElementById('fep').value.trim();
+  const n=document.getElementById('fn').value.trim(), em=document.getElementById('fe').value.trim(), ep=document.getElementById('fep').value.trim(), fcc=document.getElementById('fcc').value.trim();
   if(!n||!em||!ep) return;
   const b=document.getElementById('benv'); b.textContent='Enviando...'; b.disabled=true;
   document.getElementById('merr').style.display='none';
   try{
-    const r=await fetch('https://n8n.srv1567948.hstgr.cloud/webhook/fluir-pos-proposta',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cliente_nome:n,cliente_email:em,empresa:ep,economia_mensal:economia,link_proposta:location.href})});
+    const r=await fetch('https://n8n.srv1567948.hstgr.cloud/webhook/fluir-pos-proposta',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({cliente_nome:n,cliente_email:em,cc:fcc,empresa:ep,economia_mensal:economia,link_proposta:location.href})});
     if(!r.ok) throw 0;
     document.getElementById('mform').style.display='none'; document.getElementById('mok').style.display='block';
   } catch{ document.getElementById('merr').style.display='block'; b.textContent='Enviar'; b.disabled=false; }

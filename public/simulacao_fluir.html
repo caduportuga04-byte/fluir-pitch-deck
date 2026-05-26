@@ -846,6 +846,21 @@ tr.proj-head-row th { background: #1e4080; }
           </div>
 
           <div>
+            <label style="font-size:11px;font-weight:700;letter-spacing:0.8px;color:#1e4080;text-transform:uppercase;display:block;margin-bottom:5px;">CC (opcional)</label>
+            <input type="text" id="env_cc" placeholder="copia@empresa.com, outro@empresa.com"
+              style="width:100%;padding:9px 12px;border:1px solid #b8cce0;border-radius:4px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a2e;background:#fff;">
+            <div style="font-size:11px;color:#888;margin-top:3px;">Separe múltiplos emails por vírgula</div>
+          </div>
+
+          <div>
+            <label style="font-size:11px;font-weight:700;letter-spacing:0.8px;color:#1e4080;text-transform:uppercase;display:block;margin-bottom:5px;">Planilha interativa</label>
+            <select id="env_planilha" style="width:100%;padding:9px 12px;border:1px solid #b8cce0;border-radius:4px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a2e;background:#fff;">
+              <option value="false">🔒 Travada (sem link da planilha)</option>
+              <option value="true">🔓 Aberta (inclui link para explorar)</option>
+            </select>
+          </div>
+
+          <div>
             <label style="font-size:11px;font-weight:700;letter-spacing:0.8px;color:#1e4080;text-transform:uppercase;display:block;margin-bottom:5px;">Observação (opcional)</label>
             <textarea id="env_obs" rows="3" placeholder="Pontos discutidos na reunião, dúvidas do cliente..."
               style="width:100%;padding:9px 12px;border:1px solid #b8cce0;border-radius:4px;font-size:13px;font-family:Arial,sans-serif;color:#1a1a2e;background:#fff;resize:vertical;"></textarea>
@@ -1054,10 +1069,12 @@ function calc() {
 
 
 function enviarEmail() {
-  var nome    = document.getElementById('env_nome').value.trim();
-  var empresa = document.getElementById('env_empresa').value.trim();
-  var email   = document.getElementById('env_email').value.trim();
-  var obs     = document.getElementById('env_obs').value.trim();
+  var nome      = document.getElementById('env_nome').value.trim();
+  var empresa   = document.getElementById('env_empresa').value.trim();
+  var email     = document.getElementById('env_email').value.trim();
+  var cc        = document.getElementById('env_cc').value.trim();
+  var planilha  = document.getElementById('env_planilha').value === 'true';
+  var obs       = document.getElementById('env_obs').value.trim();
 
   if (!nome || !email) {
     showEnvStatus('error', '⚠️ Preencha Nome e Email.');
@@ -1078,6 +1095,8 @@ function enviarEmail() {
     cliente_nome:         nome,
     empresa:              empresa,
     cliente_email:        email,
+    cc:                   cc,
+    planilha_aberta:      planilha,
     faturamento_mensal:   fat,
     valor_compras:        comp,
     aliquota_icms_origem: aliqO / 100,
