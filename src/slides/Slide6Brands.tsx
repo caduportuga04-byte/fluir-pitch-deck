@@ -10,7 +10,7 @@ import widicare from "@/assets/brands/widicare.png";
 import alfaparf from "@/assets/brands/alfaparf.png";
 import jequiti from "@/assets/brands/jequiti.png";
 import unilever from "@/assets/brands/unilever.png";
-import loreal from "@/assets/brands/loreal.png";
+import bioterra from "@/assets/brands/bioterra.jpg";
 import arvensis from "@/assets/brands/arvensis.png";
 
 const brands: { name: string; logo: string }[] = [
@@ -24,7 +24,7 @@ const brands: { name: string; logo: string }[] = [
   { name: "Alfaparf", logo: alfaparf },
   { name: "Jequiti", logo: jequiti },
   { name: "Unilever", logo: unilever },
-  { name: "L'Oréal", logo: loreal },
+  { name: "Bioterra", logo: bioterra },
   { name: "Arvensis", logo: arvensis },
 ];
 
