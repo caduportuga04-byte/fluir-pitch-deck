@@ -16,7 +16,7 @@ import arvensis from "@/assets/brands/arvensis.png";
 const brands: { name: string; logo: string; maxHeight?: number }[] = [
   { name: "O Boticário", logo: boticario },
   { name: "Adcos", logo: adcos },
-  { name: "Princípia", logo: principia },
+  { name: "Bio Extratus", logo: bioextratus, maxHeight: 88 },
   { name: "Amend", logo: amend },
   { name: "Lola", logo: lola },
   { name: "Revlon", logo: revlon },
@@ -24,7 +24,7 @@ const brands: { name: string; logo: string; maxHeight?: number }[] = [
   { name: "Alfaparf", logo: alfaparf },
   { name: "Jequiti", logo: jequiti },
   { name: "Unilever", logo: unilever },
-  { name: "Bio Extratus", logo: bioextratus, maxHeight: 88 },
+  { name: "Princípia", logo: principia },
   { name: "Arvensis", logo: arvensis },
 ];
 
