@@ -14,9 +14,9 @@ export function Slide2About() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          filter: "blur(6px)",
-          transform: "scale(1.05)",
-          opacity: 0.32,
+          filter: "blur(2px)",
+          transform: "scale(1.03)",
+          opacity: 0.42,
           zIndex: 0,
         }}
       />
