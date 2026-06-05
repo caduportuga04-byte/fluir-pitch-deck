@@ -10,7 +10,7 @@ import widicare from "@/assets/brands/widicare.png";
 import alfaparf from "@/assets/brands/alfaparf.png";
 import jequiti from "@/assets/brands/jequiti.png";
 import unilever from "@/assets/brands/unilever.png";
-import bioterra from "@/assets/brands/bioterra.jpg";
+import bioterra from "@/assets/brands/bioterra.png";
 import arvensis from "@/assets/brands/arvensis.png";
 
 const brands: { name: string; logo: string }[] = [
