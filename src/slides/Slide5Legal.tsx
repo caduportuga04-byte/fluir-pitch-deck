@@ -180,8 +180,8 @@ export function Slide5Legal() {
             sourceBg="#2D3748"
             sourceColor="#FFFFFF"
             date="Abr. 2026"
-            headline="SP simplifica a tributação com exclusão de mercadorias da ST do ICMS"
-            highlight="exclusão de mercadorias da ST"
+            headline="SP exclui cosméticos e higiene pessoal da substituição tributária do ICMS"
+            highlight="cosméticos e higiene pessoal"
             sourceLabel="Oficial"
           />
         </div>

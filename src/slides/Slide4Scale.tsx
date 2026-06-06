@@ -80,7 +80,7 @@ export function Slide4Scale() {
                   +600 empresas
                 </div>
                 <div style={{ color: "#E2E6E9", fontSize: 13, marginTop: 3 }}>
-                  14,4% do mercado já aderiu
+                  14,4% das empresas com incentivo ES são do setor
                 </div>
               </div>
             </div>
