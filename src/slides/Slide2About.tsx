@@ -28,67 +28,50 @@ export function Slide2About() {
           zIndex: 1,
         }}
       />
-      <div className="flex-1 flex flex-col justify-center gap-[clamp(16px,3vh,40px)]" style={{ position: "relative", zIndex: 2 }}>
+      <div className="flex-1 flex flex-col justify-center gap-[clamp(20px,4vh,48px)]" style={{ position: "relative", zIndex: 2 }}>
         <div>
           <SlideHeadline className="text-3xl md:text-4xl max-w-4xl">
-            A Fluir
+            O que fazemos
           </SlideHeadline>
 
-          {/* Quem Somos */}
           <div
-            className="text-xs uppercase tracking-[0.18em] mt-5 mb-2"
-            style={{ color: "#C9A84C", fontWeight: 700 }}
-          >
-            Quem Somos
-          </div>
-          <p className="max-w-3xl text-lg leading-relaxed" style={{ color: "#E2E6E9" }}>
-            Somos uma consultoria full service especializada em distribuidores e atacadistas de cosméticos
-            — estruturamos operações no Espírito Santo do zero e transformamos incentivos fiscais em
-            vantagem competitiva mensurável.
-          </p>
-
-          <div
-            className="mt-5 rounded-lg p-4 max-w-3xl"
+            className="mt-8 rounded-lg p-4 max-w-4xl"
             style={{ backgroundColor: "#09151A", border: "2px solid #C9A84C" }}
           >
             <div className="text-xs uppercase tracking-widest mb-1" style={{ color: "#F0D78C", fontWeight: 600 }}>
               Nossa Missão
             </div>
             <div className="text-base leading-snug" style={{ color: "#F5F0F0", fontWeight: 600 }}>
-              Conduzir cada etapa — da análise tributária ao operacional rodando — com os especialistas certos,
-              garantindo resultado real desde o primeiro mês.
+              Transformar incentivo fiscal em vantagem competitiva real, da estruturação ao dia a dia da operação.
             </div>
           </div>
+
+          <p className="mt-8 max-w-4xl text-lg leading-relaxed" style={{ color: "#E2E6E9" }}>
+            A Fluir é uma consultoria full-service especializada em estruturar operações no Espírito Santo: estrutura,
+            processo e resultado, do início ao dia a dia da operação. Cada etapa conduzida com os especialistas certos,
+            assegurando o sucesso de cada entrega.
+          </p>
         </div>
 
-        {/* O Que Fazemos */}
-        <div>
-          <div
-            className="text-xs uppercase tracking-[0.18em] mb-3"
-            style={{ color: "#C9A84C", fontWeight: 700 }}
-          >
-            O Que Fazemos
-          </div>
-          <div className="grid grid-cols-3 gap-5 max-w-5xl w-full">
-            {[
-              { icon: <Shield size={36} strokeWidth={1.4} />, label: "Estruturação Tributária" },
-              { icon: <Truck size={36} strokeWidth={1.4} />, label: "Consultoria Logística" },
-              { icon: <Settings size={36} strokeWidth={1.4} />, label: "Operação Completa" },
-            ].map(({ icon, label }) => (
-              <div
-                key={label}
-                className="rounded-xl px-6 py-12 flex flex-col items-center justify-center text-center"
-                style={{ backgroundColor: "#09151A", border: "1px solid #194A99" }}
-              >
-                <div className="mb-4" style={{ color: "#609DFF" }}>
-                  {icon}
-                </div>
-                <div className="text-base font-semibold" style={{ color: "#F5F0F0" }}>
-                  {label}
-                </div>
+        <div className="grid grid-cols-3 gap-5 max-w-5xl w-full">
+          {[
+            { icon: <Shield size={36} strokeWidth={1.4} />, label: "Estruturação Tributária" },
+            { icon: <Truck size={36} strokeWidth={1.4} />, label: "Consultoria Logística" },
+            { icon: <Settings size={36} strokeWidth={1.4} />, label: "Operação Completa" },
+          ].map(({ icon, label }) => (
+            <div
+              key={label}
+              className="rounded-xl px-6 py-12 flex flex-col items-center justify-center text-center"
+              style={{ backgroundColor: "#09151A", border: "1px solid #194A99" }}
+            >
+              <div className="mb-4" style={{ color: "#609DFF" }}>
+                {icon}
               </div>
-            ))}
-          </div>
+              <div className="text-base font-semibold" style={{ color: "#F5F0F0" }}>
+                {label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </SlideWrapper>
