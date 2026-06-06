@@ -125,21 +125,6 @@ export function SlideCompetitivo() {
 
         <div className="w-52 flex flex-col justify-center gap-4">
           <div
-            className="rounded-lg p-5 text-center"
-            style={{ backgroundColor: "rgba(96,157,255,0.08)", border: "1px solid #609DFF" }}
-          >
-            <div style={{ color: "#609DFF", fontSize: 38, fontWeight: 800, lineHeight: 1 }}>
-              14,4%
-            </div>
-            <div style={{ color: "#8FB8FF", fontSize: 12, marginTop: 4 }}>
-              do setor de cosméticos
-            </div>
-            <div style={{ color: "#F5F0F0", fontSize: 12, fontWeight: 600, marginTop: 2 }}>
-              já opera com Compete ES
-            </div>
-          </div>
-
-          <div
             className="rounded-lg p-4"
             style={{ backgroundColor: "rgba(201,168,76,0.08)", border: "1px solid #C9A84C" }}
           >
