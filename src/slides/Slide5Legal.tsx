@@ -37,6 +37,7 @@ function PressCard({
   date,
   headline,
   highlight,
+  sourceLabel = "Imprensa",
 }: {
   source: string;
   sourceBg: string;
@@ -44,6 +45,7 @@ function PressCard({
   date: string;
   headline: string;
   highlight: string;
+  sourceLabel?: string;
 }) {
   const parts = headline.split(highlight);
   return (
@@ -53,7 +55,7 @@ function PressCard({
         backgroundColor: "#F5F0F0",
         boxShadow: "0 8px 24px -10px rgba(0,0,0,0.5)",
         borderLeft: "4px solid #C9A84C",
-        minHeight: 110,
+        minHeight: 82,
       }}
     >
       {/* Source strip */}
@@ -89,7 +91,7 @@ function PressCard({
             textTransform: "uppercase",
           }}
         >
-          Imprensa
+          {sourceLabel}
         </span>
       </div>
 
@@ -156,7 +158,7 @@ export function Slide5Legal() {
         </div>
 
         {/* Right: press clippings */}
-        <div className="col-span-3 flex flex-col gap-4 justify-center">
+        <div className="col-span-3 flex flex-col gap-2 justify-center">
           <PressCard
             source="Gazeta ES"
             sourceBg="rgba(30, 58, 138, 0.12)"
@@ -172,6 +174,15 @@ export function Slide5Legal() {
             date="Senado Federal"
             headline="Senado aprova projeto que prorroga incentivos fiscais do ICMS até 2032"
             highlight="prorroga incentivos fiscais"
+          />
+          <PressCard
+            source="Sefaz SP"
+            sourceBg="#2D3748"
+            sourceColor="#FFFFFF"
+            date="Abr. 2026"
+            headline="SP simplifica a tributação com exclusão de mercadorias da ST do ICMS"
+            highlight="exclusão de mercadorias da ST"
+            sourceLabel="Oficial"
           />
         </div>
       </div>

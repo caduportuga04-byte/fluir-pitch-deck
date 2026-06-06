@@ -2,20 +2,24 @@ import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Slide1Cover } from "@/slides/Slide1Cover";
 import { Slide2About } from "@/slides/Slide2About";
+import { SlideESVantagens } from "@/slides/SlideESVantagens";
 import { Slide3WhyES } from "@/slides/Slide3WhyES";
 import { Slide4Scale } from "@/slides/Slide4Scale";
 import { Slide5Legal } from "@/slides/Slide5Legal";
 import { Slide6Brands } from "@/slides/Slide6Brands";
+import { SlideCompetitivo } from "@/slides/SlideCompetitivo";
 import { Slide7Pipeline } from "@/slides/Slide7Pipeline";
 import { Slide8CTA } from "@/slides/Slide8CTA";
 
 const slides = [
   Slide1Cover,
   Slide2About,
+  SlideESVantagens,
   Slide3WhyES,
   Slide4Scale,
   Slide5Legal,
   Slide6Brands,
+  SlideCompetitivo,
   Slide7Pipeline,
   Slide8CTA,
 ];
