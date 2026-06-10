@@ -28,13 +28,13 @@ export function Slide2About() {
           zIndex: 1,
         }}
       />
-      <div className="flex-1 flex flex-col justify-center gap-[clamp(20px,4vh,48px)]" style={{ position: "relative", zIndex: 2 }}>
+      <div className="flex-1 flex flex-col justify-center gap-[clamp(12px,2.5vh,28px)]" style={{ position: "relative", zIndex: 2 }}>
         <div>
           <SlideHeadline className="text-3xl md:text-4xl max-w-4xl">
             Quem Somos
           </SlideHeadline>
 
-          <p className="mt-8 max-w-4xl text-lg leading-relaxed" style={{ color: "#E2E6E9" }}>
+          <p className="mt-4 max-w-4xl text-lg leading-relaxed" style={{ color: "#E2E6E9" }}>
             A Fluir é uma consultoria full-service especializada em atrair e estruturar empresas no Espírito Santo.
             Nossa missão é transformar incentivo fiscal em vantagem competitiva real, cuidando de todo o processo,
             da estruturação à operação plena. Cada etapa com os especialistas certos, assegurando o sucesso de cada entrega.
