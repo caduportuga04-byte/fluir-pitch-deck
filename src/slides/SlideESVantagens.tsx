@@ -1,4 +1,4 @@
-import { Truck, TrendingUp, Shield, Calendar } from "lucide-react";
+import { Truck, TrendingUp, Shield } from "lucide-react";
 import { ReactNode } from "react";
 import { SlideHeader } from "@/components/deck-primitives";
 import mapaBrasilES from "@/assets/mapa-brasil-es.png";
@@ -7,22 +7,22 @@ type CardProps = {
   icon: ReactNode;
   tag: string;
   title: string;
-  body: string;
+  bullets: string[];
   color: string;
 };
 
-function ESCard({ icon, tag, title, body, color }: CardProps) {
+function ESCard({ icon, tag, title, bullets, color }: CardProps) {
   return (
     <div
       style={{
         flex: 1,
         backgroundColor: "#09151a",
         border: "1px solid #1a3f70",
-        borderRadius: 10,
-        padding: "12px 16px",
+        borderRadius: 12,
+        padding: "16px 20px",
         display: "flex",
         flexDirection: "column",
-        gap: 5,
+        gap: 8,
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
@@ -39,11 +39,16 @@ function ESCard({ icon, tag, title, body, color }: CardProps) {
           {tag}
         </span>
       </div>
-      <div style={{ color: "#F5F0F0", fontWeight: 700, fontSize: 16, lineHeight: 1.25 }}>
+      <div style={{ color: "#F5F0F0", fontWeight: 700, fontSize: 17, lineHeight: 1.3 }}>
         {title}
       </div>
-      <div style={{ color: "#adc2d8", fontSize: 12, lineHeight: 1.45 }}>
-        {body}
+      <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+        {bullets.map((b) => (
+          <div key={b} style={{ display: "flex", alignItems: "flex-start", gap: 7 }}>
+            <span style={{ color, fontSize: 11, marginTop: 1, flexShrink: 0 }}>▸</span>
+            <span style={{ color: "#adc2d8", fontSize: 12, lineHeight: 1.45 }}>{b}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -54,29 +59,31 @@ const cards: CardProps[] = [
     icon: <Truck size={16} strokeWidth={1.5} />,
     tag: "Hub Logístico Nacional",
     title: "1.200 km de 60% do PIB nacional",
-    body: "Portos + EFVM + posição costeira estratégica — menor custo e menor prazo para distribuição em todo o Brasil.",
+    bullets: [
+      "Portos + EFVM + posição costeira estratégica",
+      "Menor custo e prazo de distribuição",
+    ],
     color: "#609DFF",
   },
   {
     icon: <TrendingUp size={16} strokeWidth={1.5} />,
     tag: "Governo que Investe",
-    title: "R$ 137,6 bi em pipeline",
-    body: "Fundo Soberano do ES + logística como setor prioritário de 2024 a 2029, com novos portos e parques logísticos em implantação.",
+    title: "R$ 137,6 bi em investimentos até 2029",
+    bullets: [
+      "Recorde histórico — 70% já em execução",
+      "Indústria e logística no centro do ciclo",
+    ],
     color: "#2dd47e",
   },
   {
     icon: <Shield size={16} strokeWidth={1.5} />,
-    tag: "Estado mais Fiscal do Brasil",
-    title: "Nota A · 1º em equilíbrio fiscal",
-    body: "O Espírito Santo lidera o ranking nacional de responsabilidade fiscal — governo previsível, sem risco de reversão de incentivos.",
+    tag: "Solidez Fiscal",
+    title: "Único estado Nota A desde 2012",
+    bullets: [
+      "Nota A+ do Tesouro Nacional (2 anos seguidos)",
+      "Menor endividamento do país = incentivo com lastro",
+    ],
     color: "#F0D78C",
-  },
-  {
-    icon: <Calendar size={16} strokeWidth={1.5} />,
-    tag: "Incentivo com Raiz",
-    title: "Compete ES desde 2003",
-    body: "Mais de 20 anos de vigência contínua. Convalidado no CONFAZ e estendido até 2032 — base legal sólida para planejamento de longo prazo.",
-    color: "#C9A84C",
   },
 ];
 
@@ -131,7 +138,7 @@ export function SlideESVantagens() {
             </div>
           </div>
 
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8, minHeight: 0, overflow: "hidden" }}>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 12, minHeight: 0, overflow: "hidden" }}>
             {cards.map((c) => (
               <ESCard key={c.tag} {...c} />
             ))}
