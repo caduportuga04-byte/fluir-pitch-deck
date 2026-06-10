@@ -435,10 +435,20 @@ tr.proj-head-row th { background: #1e4080; }
               <td class="desc-col">Valor total de compra</td>
               <td class="right">
                 <div class="input-wrap">
-                  <input type="number" id="c7" value="1000000" min="0" step="1000" oninput="calc()">
+                  <input type="number" id="c7" value="1000000" min="0" step="1000" oninput="updateMarkupDisplay(); calc()">
                 </div>
               </td>
               <td class="right" id="d7p">33,3%</td>
+            </tr>
+            <tr>
+              <td class="desc-col">Markup sobre custo</td>
+              <td class="right">
+                <div class="input-wrap">
+                  <input type="number" id="markup_pct" min="0" max="10000" step="0.1" placeholder="—" oninput="applyMarkup()">
+                  <span class="pct-sym">%</span>
+                </div>
+              </td>
+              <td class="right" id="markup_display" style="color:#8FB8FF">—</td>
             </tr>
             <tr>
               <td class="desc-col">Alíquota ICMS crédito</td>
@@ -462,7 +472,7 @@ tr.proj-head-row th { background: #1e4080; }
               <td class="desc-col">Valor total de venda (faturamento)</td>
               <td class="right">
                 <div class="input-wrap">
-                  <input type="number" id="c11" value="3000000" min="0" step="1000" oninput="calc()">
+                  <input type="number" id="c11" value="3000000" min="0" step="1000" oninput="applyMarkupToCompra(); calc()">
                 </div>
               </td>
               <td class="right">100%</td>
@@ -1282,6 +1292,52 @@ function salvarProposta() {
     if (t.textContent.indexOf('Enviar') > -1) t.style.display = 'none';
   });
 })();
+
+// Markup calculator
+function applyMarkup() {
+  var markup = parseFloat(document.getElementById('markup_pct').value);
+  if (isNaN(markup) || markup <= 0) {
+    document.getElementById('markup_display').textContent = '—';
+    calc(); return;
+  }
+  var c11val = parseFloat(document.getElementById('c11').value) || 0;
+  var c7val  = parseFloat(document.getElementById('c7').value)  || 0;
+  if (c11val > 0) {
+    document.getElementById('c7').value = (c11val / (1 + markup / 100)).toFixed(2);
+  } else if (c7val > 0) {
+    document.getElementById('c11').value = (c7val * (1 + markup / 100)).toFixed(2);
+  }
+  document.getElementById('markup_display').textContent = markup.toFixed(1) + '%';
+  calc();
+}
+
+function updateMarkupDisplay() {
+  var c7val  = parseFloat(document.getElementById('c7').value)  || 0;
+  var c11val = parseFloat(document.getElementById('c11').value) || 0;
+  if (c7val > 0 && c11val > 0) {
+    var mkp = ((c11val / c7val) - 1) * 100;
+    document.getElementById('markup_pct').value = mkp.toFixed(1);
+    document.getElementById('markup_display').textContent = mkp.toFixed(1) + '%';
+  }
+}
+
+function applyMarkupToCompra() {
+  var markup = parseFloat(document.getElementById('markup_pct').value);
+  if (!isNaN(markup) && markup > 0) {
+    var c11val = parseFloat(document.getElementById('c11').value) || 0;
+    if (c11val > 0) {
+      document.getElementById('c7').value = (c11val / (1 + markup / 100)).toFixed(2);
+    }
+  } else {
+    var c7val  = parseFloat(document.getElementById('c7').value)  || 0;
+    var c11val2 = parseFloat(document.getElementById('c11').value) || 0;
+    if (c7val > 0 && c11val2 > 0) {
+      var mkp = ((c11val2 / c7val) - 1) * 100;
+      document.getElementById('markup_pct').value = mkp.toFixed(1);
+      document.getElementById('markup_display').textContent = mkp.toFixed(1) + '%';
+    }
+  }
+}
 </script>
 </body>
 </html>

@@ -194,7 +194,7 @@ export function SlideCompetitivo() {
                 marginBottom: 6,
               }}
             >
-              Momento
+              ⚠️ Momento
             </div>
             <div style={{ color: "#E2E6E9", fontSize: 14, lineHeight: 1.5 }}>
               Com a exclusão dos cosméticos do ICMS-ST em SP, a estruturação no ES ficou ainda mais acessível.

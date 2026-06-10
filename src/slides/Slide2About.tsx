@@ -44,7 +44,7 @@ export function Slide2About() {
           {[
             { icon: <Shield size={32} strokeWidth={1.4} />, label: "Estruturação Tributária" },
             { icon: <Truck size={32} strokeWidth={1.4} />, label: "Consultoria Logística" },
-            { icon: <Settings size={32} strokeWidth={1.4} />, label: "Operação Completa" },
+            { icon: <Settings size={32} strokeWidth={1.4} />, label: "Operação Habilitada" },
           ].map(({ icon, label }) => (
             <div
               key={label}
