@@ -4,9 +4,9 @@ import {
   XAxis,
   YAxis,
   ResponsiveContainer,
-  Cell,
   LabelList,
   ReferenceLine,
+  ReferenceArea,
 } from "recharts";
 import { SlideWrapper, SlideHeadline } from "@/components/deck-primitives";
 
@@ -17,7 +17,7 @@ const data = [
   { name: "Widi Care", rate: 1.14, isClient: false },
   { name: "Bio Extratus", rate: 1.14, isClient: false },
   { name: " ", rate: 0, isClient: false },
-  { name: "Sua empresa", rate: 12, isClient: true },
+  { name: "Sua empresa", rate: 25, isClient: true },
 ];
 
 const formatRate = (v: number) => {
@@ -47,6 +47,40 @@ const CustomYTick = ({ x, y, payload }: any) => {
   );
 };
 
+// Two-color bar: 0–12% dark red, 12–25% bright red, with a divider line
+const CustomBar = (props: any) => {
+  const { x, y, width, height, isClient, value } = props;
+  if (!value || !width || width <= 0) return <g />;
+
+  if (isClient) {
+    const split = width * (12 / 25);
+    return (
+      <g>
+        {/* 0–12%: current rate */}
+        <rect x={x} y={y} width={split} height={height} fill="url(#clientGrad)" />
+        {/* 12–25%: Pós Primavera Tributária */}
+        <rect
+          x={x + split} y={y}
+          width={width - split} height={height}
+          fill="url(#clientGrad2)"
+          rx={6} ry={6}
+        />
+        {/* Divider at 12% */}
+        <line
+          x1={x + split} y1={y - 1}
+          x2={x + split} y2={y + height + 1}
+          stroke="rgba(255,255,255,0.4)"
+          strokeWidth={1.5}
+        />
+      </g>
+    );
+  }
+
+  return (
+    <rect x={x} y={y} width={width} height={height} fill="url(#esGrad)" rx={6} ry={6} />
+  );
+};
+
 export function SlideCompetitivo() {
   return (
     <SlideWrapper>
@@ -63,26 +97,33 @@ export function SlideCompetitivo() {
             <BarChart
               data={data}
               layout="vertical"
-              margin={{ top: 8, right: 80, left: 10, bottom: 8 }}
+              margin={{ top: 8, right: 80, left: 10, bottom: 38 }}
             >
               <defs>
                 <linearGradient id="esGrad" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#609DFF" />
                   <stop offset="100%" stopColor="#8FB8FF" />
                 </linearGradient>
+                {/* 0–12%: dark red */}
                 <linearGradient id="clientGrad" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%" stopColor="#c44545" />
                   <stop offset="100%" stopColor="#e06060" />
                 </linearGradient>
+                {/* 12–25%: brighter red */}
+                <linearGradient id="clientGrad2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#cc1111" />
+                  <stop offset="100%" stopColor="#ff3333" />
+                </linearGradient>
               </defs>
+
               <XAxis
                 type="number"
-                domain={[0, 14]}
+                domain={[0, 28]}
                 tickFormatter={(v) => `${v}%`}
                 tick={{ fill: "#8FB8FF", fontSize: 14 }}
                 axisLine={false}
                 tickLine={false}
-                ticks={[0, 4, 8, 12]}
+                ticks={[0, 4, 8, 12, 20, 25]}
               />
               <YAxis
                 type="category"
@@ -92,6 +133,7 @@ export function SlideCompetitivo() {
                 tickLine={false}
                 width={130}
               />
+
               <ReferenceLine
                 x={1.14}
                 stroke="#609DFF"
@@ -99,19 +141,34 @@ export function SlideCompetitivo() {
                 strokeWidth={1.5}
                 strokeOpacity={0.6}
               />
-              <Bar dataKey="rate" radius={[0, 6, 6, 0]} barSize={30}>
-                {data.map((entry, i) => (
-                  <Cell
-                    key={i}
-                    fill={
-                      entry.rate === 0
-                        ? "transparent"
-                        : entry.isClient
-                        ? "url(#clientGrad)"
-                        : "url(#esGrad)"
-                    }
-                  />
-                ))}
+
+              {/* Zone 12–25%: Pós Primavera Tributária */}
+              <ReferenceArea
+                x1={12}
+                x2={25}
+                fill="rgba(200, 30, 30, 0.06)"
+                stroke="rgba(255, 60, 60, 0.2)"
+                strokeDasharray="3 3"
+                label={(labelProps: any) => {
+                  const { viewBox } = labelProps;
+                  if (!viewBox) return <g />;
+                  return (
+                    <text
+                      x={viewBox.x + viewBox.width / 2}
+                      y={viewBox.y + viewBox.height + 24}
+                      textAnchor="middle"
+                      fill="#ff5555"
+                      fontSize={12}
+                      fontWeight={600}
+                      fontFamily="system-ui, sans-serif"
+                    >
+                      Pós Primavera Tributária
+                    </text>
+                  );
+                }}
+              />
+
+              <Bar dataKey="rate" barSize={30} shape={<CustomBar />}>
                 <LabelList
                   dataKey="rate"
                   position="right"
