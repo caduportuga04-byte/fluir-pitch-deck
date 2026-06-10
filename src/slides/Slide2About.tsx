@@ -31,7 +31,7 @@ export function Slide2About() {
       <div className="flex-1 flex flex-col justify-center gap-[clamp(20px,4vh,48px)]" style={{ position: "relative", zIndex: 2 }}>
         <div>
           <SlideHeadline className="text-3xl md:text-4xl max-w-4xl">
-            O que fazemos
+            Quem Somos
           </SlideHeadline>
 
           <p className="mt-8 max-w-4xl text-lg leading-relaxed" style={{ color: "#E2E6E9" }}>
