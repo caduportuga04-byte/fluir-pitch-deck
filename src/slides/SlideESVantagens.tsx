@@ -114,9 +114,25 @@ export function SlideESVantagens() {
             preserveAspectRatio="xMidYMid slice"
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
           >
-            <circle cx={830} cy={565} r="4" fill="#2dd47e" fillOpacity="0.85" />
-            <text x={848} y={558} fill="#ffffff" fontSize="18" fontWeight="600"
-              fontFamily="system-ui, sans-serif" opacity="0.9" letterSpacing="0.05em">
+            <defs>
+              <marker id="arrowRJ" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L6,3 z" fill="rgba(255,255,255,0.6)" />
+              </marker>
+            </defs>
+            {/* Line from RJ dot pointing toward ES */}
+            <line
+              x1={900} y1={610}
+              x2={938} y2={505}
+              stroke="rgba(255,255,255,0.5)"
+              strokeWidth="1.2"
+              strokeDasharray="4 3"
+              markerEnd="url(#arrowRJ)"
+            />
+            {/* RJ dot */}
+            <circle cx={900} cy={615} r="4" fill="#2dd47e" fillOpacity="0.85" />
+            {/* RJ label */}
+            <text x={885} y={638} textAnchor="middle" fill="#ffffff" fontSize="17" fontWeight="600"
+              fontFamily="system-ui, sans-serif" opacity="0.88" letterSpacing="0.04em">
               RIO DE JANEIRO
             </text>
           </svg>
