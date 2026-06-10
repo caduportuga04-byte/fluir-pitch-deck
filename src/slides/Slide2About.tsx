@@ -29,7 +29,7 @@ export function Slide2About() {
 
         <div className="flex flex-col gap-2">
           {[
-            "Equipe dedicada à empresa",
+            "Equipe dedicada à empresa do início ao fim",
             "Acompanhamento contínuo durante o contrato",
             "Especialistas em tributário, logística e jurídico",
           ].map((item) => (
