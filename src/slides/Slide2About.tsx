@@ -35,9 +35,9 @@ export function Slide2About() {
           </SlideHeadline>
 
           <p className="mt-8 max-w-4xl text-lg leading-relaxed" style={{ color: "#E2E6E9" }}>
-            A Fluir é uma consultoria full-service especializada em estruturar operações no Espírito Santo: estrutura,
-            processo e resultado, do início ao dia a dia da operação. Cada etapa conduzida com os especialistas certos,
-            assegurando o sucesso de cada entrega.
+            A Fluir é uma consultoria full-service especializada em atrair e estruturar empresas no Espírito Santo.
+            Nossa missão é transformar incentivo fiscal em vantagem competitiva real, cuidando de todo o processo,
+            da estruturação à operação plena. Cada etapa com os especialistas certos, assegurando o sucesso de cada entrega.
           </p>
         </div>
 
