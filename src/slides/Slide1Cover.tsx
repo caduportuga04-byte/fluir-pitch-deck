@@ -42,11 +42,10 @@ export function Slide1Cover() {
         </div>
         <GoldDivider className="mt-10 mb-8" />
         <p
-          className="text-xl max-w-3xl"
+          className="text-xl max-w-5xl"
           style={{ color: "#E2E6E9", fontWeight: 400 }}
         >
-          Consultoria Especializada em atração e estruturação de operações
-          para o Espírito Santo
+          Consultoria especializada em atração e estruturação de operações para o Espírito Santo
         </p>
       </div>
     </SlideWrapper>
