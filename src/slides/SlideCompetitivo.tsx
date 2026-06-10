@@ -97,7 +97,7 @@ export function SlideCompetitivo() {
             <BarChart
               data={data}
               layout="vertical"
-              margin={{ top: 8, right: 80, left: 10, bottom: 38 }}
+              margin={{ top: 8, right: 80, left: 10, bottom: 52 }}
             >
               <defs>
                 <linearGradient id="esGrad" x1="0" y1="0" x2="1" y2="0">
@@ -146,16 +146,15 @@ export function SlideCompetitivo() {
               <ReferenceArea
                 x1={12}
                 x2={25}
-                fill="rgba(200, 30, 30, 0.06)"
-                stroke="rgba(255, 60, 60, 0.2)"
-                strokeDasharray="3 3"
+                fill="none"
+                stroke="none"
                 label={(labelProps: any) => {
                   const { viewBox } = labelProps;
                   if (!viewBox) return <g />;
                   return (
                     <text
                       x={viewBox.x + viewBox.width / 2}
-                      y={viewBox.y + viewBox.height + 24}
+                      y={viewBox.y + viewBox.height + 44}
                       textAnchor="middle"
                       fill="#ff5555"
                       fontSize={12}
