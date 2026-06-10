@@ -45,8 +45,8 @@ export function Slide1Cover() {
           className="text-xl max-w-3xl"
           style={{ color: "#E2E6E9", fontWeight: 400 }}
         >
-          Consultoria especializada em estruturação tributária e atração de
-          operações para o Espírito Santo
+          Consultoria Especializada em atração e estruturação de operações
+          para o Espírito Santo
         </p>
       </div>
     </SlideWrapper>
