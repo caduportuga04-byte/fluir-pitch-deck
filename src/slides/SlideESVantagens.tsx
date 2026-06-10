@@ -108,6 +108,18 @@ export function SlideESVantagens() {
               objectPosition: "center center",
             }}
           />
+          {/* RJ overlay — SVG coord system matches image (1536×924, xMidYMid slice) */}
+          <svg
+            viewBox="0 0 1536 924"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
+          >
+            <circle cx={830} cy={565} r="4" fill="#2dd47e" fillOpacity="0.85" />
+            <text x={848} y={558} fill="#ffffff" fontSize="18" fontWeight="600"
+              fontFamily="system-ui, sans-serif" opacity="0.9" letterSpacing="0.05em">
+              RIO DE JANEIRO
+            </text>
+          </svg>
         </div>
 
         {/* Right — title + cards */}
