@@ -70,7 +70,7 @@ const cards: CardProps[] = [
     tag: "Governo que Investe",
     title: "R$ 137,6 bi em investimentos até 2029",
     bullets: [
-      "70% já aportado",
+      "Recorde histórico — 70% já em execução",
       "Indústria e logística no centro do ciclo de investimento",
     ],
     color: "#2dd47e",
