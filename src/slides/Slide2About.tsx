@@ -23,7 +23,7 @@ export function Slide2About() {
           <p className="mt-6 text-xl leading-relaxed" style={{ color: "#E2E6E9" }}>
             A Fluir é uma consultoria full-service especializada em atrair distribuidores, importadores e operações de e-commerce para o Espírito Santo.
             Nossa missão é transformar incentivo fiscal em vantagem competitiva real, cuidando de todo o processo,
-            da estruturação à operação plena. Cada etapa com os especialistas certos, assegurando o sucesso de cada entrega.
+            da estruturação à operação plena.
           </p>
         </div>
 
